@@ -2,15 +2,13 @@
   "name": "buzzdeee-rtadvd",
   "version": "0.1.0",
   "author": "buzzdeee",
-  "summary": null,
-  "license": "Apache 2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "summary": "A puppet module to manage OpenBSD rtadvd",
+  "license": "Apache-2.0",
+  "source": "https://github.com/buzzdeee/buzzdeee-rtadvd.git",
+  "project_page": "https://github.com/buzzdeee/buzzdeee-rtadvd",
+  "issues_url": "https://github.com/buzzdeee/buzzdeee-rtadvd/issues",
   "dependencies": [
-    {"name":"puppetlabs/stdlib","version_requirement":"4.x"},
-    {"name":"puppetlabs/apt","version_requirement":">=1.8.0 <2.0.0"},
-    {"name":"puppetlabs/concat","version_requirement":">= 1.1.0 <2.0.0"}
+    {"name":"puppetlabs/stdlib","version_requirement":"4.x"}
   ]
 }
 
