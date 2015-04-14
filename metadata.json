@@ -7,6 +7,7 @@
   "source": "https://github.com/buzzdeee/buzzdeee-rtadvd.git",
   "project_page": "https://github.com/buzzdeee/buzzdeee-rtadvd",
   "issues_url": "https://github.com/buzzdeee/buzzdeee-rtadvd/issues",
+  "description": "A puppet module to manage OpenBSD rtadvd",
   "requirements": [
     {
       "name": "puppet",
