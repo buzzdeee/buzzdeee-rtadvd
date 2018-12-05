@@ -36,9 +36,10 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class rtadvd (
-  $service_ensure  = 'running',
-  $service_enable  = true,
-  $service_flags   = undef,
+  $service_ensure = 'running',
+  $service_enable = true,
+  $service_flags  = undef,
+  $interfaces     = {},
 ){
 
 
@@ -53,4 +54,15 @@ class rtadvd (
     enable => $service_enable,
     flags  => $service_flags,
   }
+
+  if ($service_name == 'rad') {
+    file { '/etc/rad.conf':
+      owner   => 'root',
+      group   => 'wheel',
+      mode    => '0644',
+      content => template('rtadvd/rad.conf.erb'),
+      notify  => Service[$service_name],
+    }
+  }
+
 }
