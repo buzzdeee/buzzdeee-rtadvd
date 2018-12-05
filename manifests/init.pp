@@ -41,9 +41,16 @@ class rtadvd (
   $service_flags   = undef,
 ){
 
-  service { "$name":
-    ensure  => $service_ensure,
-    enable  => $service_enable,
-    flags   => $service_flags,
+
+  if (versioncmp('6.4', $::facts['kernelversion']) == -1) {
+    $service_name = 'rtadvd'
+  } else {
+    $service_name = 'rad'
+  }
+
+  service { $service_name:
+    ensure => $service_ensure,
+    enable => $service_enable,
+    flags  => $service_flags,
   }
 }
