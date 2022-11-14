@@ -43,11 +43,7 @@ class rtadvd (
 ){
 
 
-  if (versioncmp('6.4', $::facts['kernelversion']) == -1) {
-    $service_name = 'rtadvd'
-  } else {
-    $service_name = 'rad'
-  }
+  $service_name = 'rad'
 
   service { $service_name:
     ensure => $service_ensure,
@@ -55,14 +51,11 @@ class rtadvd (
     flags  => $service_flags,
   }
 
-  if ($service_name == 'rad') {
-    file { '/etc/rad.conf':
-      owner   => 'root',
-      group   => 'wheel',
-      mode    => '0644',
-      content => template('rtadvd/rad.conf.erb'),
-      notify  => Service[$service_name],
-    }
+  file { '/etc/rad.conf':
+    owner   => 'root',
+    group   => 'wheel',
+    mode    => '0644',
+    content => template('rtadvd/rad.conf.erb'),
+    notify  => Service[$service_name],
   }
-
 }
